@@ -23,13 +23,9 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Suppress breaks from experimental warnings in Next 16/React 19
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // TypeScript/ESLint ignore settings are now handled via 
+  // CLI flags or separate config files in Next 16.
+  
   images: {
     remotePatterns: [
       {
@@ -46,8 +42,9 @@ const nextConfig = {
       },
     ],
   },
-  // Ensure the build doesn't struggle with Tailwind 4's new engine
   experimental: {
+    // This helps those 2-core Vercel machines by only loading 
+    // the icons/animations you actually use.
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
 };
