@@ -16,14 +16,8 @@ import {
   Download,
 } from "lucide-react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-
-const Navbar = dynamic(() => import("@/components/layout/Navbar"), {
-  ssr: true,
-});
-const Footer = dynamic(() => import("@/components/layout/Footer"), {
-  ssr: false,
-});
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 /* ================= AMBIENT BACKGROUND ================= */
 const AmbientBackground = memo(() => (

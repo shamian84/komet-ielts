@@ -18,16 +18,8 @@ import {
   Users,
 } from "lucide-react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-
-// High-perf Dynamic Imports
-const Navbar = dynamic(() => import("@/components/layout/Navbar"), {
-  ssr: true,
-});
-const Footer = dynamic(() => import("@/components/layout/Footer"), {
-  ssr: false,
-});
-
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 /* ================= DATA ================= */
 
 const planSteps = [

@@ -22,13 +22,8 @@ import AlertCircle from "lucide-react/dist/esm/icons/alert-circle";
 import TrendingUp from "lucide-react/dist/esm/icons/trending-up";
 import EyeOff from "lucide-react/dist/esm/icons/eye-off";
 import Gauge from "lucide-react/dist/esm/icons/gauge";
-
-const Navbar = dynamic(() => import("@/components/layout/Navbar"), {
-  ssr: true,
-});
-const Footer = dynamic(() => import("@/components/layout/Footer"), {
-  ssr: false,
-});
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 // Memoized static data to prevent re-creation on render
 const MODULES = [

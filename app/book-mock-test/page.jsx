@@ -14,14 +14,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import dynamic from "next/dynamic";
-
-const Navbar = dynamic(() => import("@/components/layout/Navbar"), {
-  ssr: true,
-});
-const Footer = dynamic(() => import("@/components/layout/Footer"), {
-  ssr: false,
-});
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const OFFICIAL_DATES = [
   {
