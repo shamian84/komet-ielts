@@ -11,7 +11,7 @@ export default function HeroSection() {
     <LazyMotion features={domAnimation}>
       <section
         id="hero"
-        className="relative pt-20 sm:pt-24 lg:pt-32 pb-12 lg:pb-20 overflow-hidden bg-slate-50"
+        className="relative pt-20 sm:pt-24 lg:pt-32 pb-12 mt-10 lg:pb-20 overflow-hidden bg-slate-50"
         aria-label="IELTS Coaching Hero Section"
       >
         {/* Background Pattern - Optimized as a simple div to reduce paint time */}
@@ -21,7 +21,7 @@ export default function HeroSection() {
           style={{
             backgroundImage: "radial-gradient(#cbd5e1 1px, transparent 1px)",
             backgroundSize: "32px 32px",
-            contentVisibility: "auto", // Performance optimization for background
+            contentVisibility: "auto",
           }}
         />
 

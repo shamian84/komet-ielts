@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, memo } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
@@ -66,7 +66,6 @@ const DropdownItem = memo(({ title, desc, href }) => (
 ));
 DropdownItem.displayName = "DropdownItem";
 
-// Optimized Desktop Dropdown: Click navigates, Hover shows menu
 const DesktopDropdown = memo(({ title, href, items }) => (
   <div className="relative group px-1">
     <Link
@@ -91,7 +90,6 @@ const DesktopDropdown = memo(({ title, href, items }) => (
 ));
 DesktopDropdown.displayName = "DesktopDropdown";
 
-// Optimized Mobile Accordion: Text navigates, Chevron toggles
 const MobileAccordion = memo(
   ({ title, href, isOpen, onToggle, items, onClose }) => (
     <div className="py-1 border-b border-slate-50 last:border-0">
@@ -166,28 +164,26 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-0 group shrink-0">
-            {/* 1. Reduced width from w-32 to w-12 to fit the icon tightly */}
             <div className="relative h-10 w-12">
               <Image
                 src="/KometLogo.webp"
                 alt="Komet Logo"
                 fill
                 priority
-                className="object-contain object-left rounded-3xl mr-3" // 2. Force image to stick to the left
+                className="object-contain object-left rounded-3xl mr-3"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-
-            {/* 3. Added a small negative margin or tight tracking if needed */}
             <span className="text-2xl font-black tracking-tighter text-blue-600 uppercase italic ml-1">
               Komet
             </span>
           </Link>
+
           <nav className="hidden lg:flex items-center gap-1">
+            <NavLink text="Home" href="/" />
             <DesktopDropdown
               title="Exam Guide"
               href="/ielts-exam-guide"
-              prefetch={true}
               items={EXAM_GUIDES}
             />
             <NavLink text="Training Method" href="/#komet-training" />
@@ -195,10 +191,10 @@ export default function Navbar() {
             <DesktopDropdown
               title="Services"
               href="/services"
-              prefetch={true}
               items={SERVICES}
             />
           </nav>
+
           <div className="hidden lg:flex items-center gap-4 shrink-0">
             <Link href="/mock-test" prefetch={true}>
               <motion.button
@@ -219,6 +215,7 @@ export default function Navbar() {
               </motion.button>
             </Link>
           </div>
+
           <button
             className="lg:hidden p-2 text-slate-900 bg-slate-50 rounded-lg cursor-pointer"
             onClick={() => setMobileOpen(true)}
@@ -258,6 +255,14 @@ export default function Navbar() {
               </div>
 
               <div className="flex-1 overflow-y-auto px-6 py-2">
+                <Link
+                  href="/"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between py-5 text-lg font-bold text-slate-800 border-b border-slate-50"
+                >
+                  Home <ArrowRight size={18} className="text-blue-600" />
+                </Link>
+
                 <MobileAccordion
                   title="Exam Guide"
                   href="/ielts-exam-guide"

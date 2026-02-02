@@ -274,7 +274,7 @@ export default function IELTSExamGuidePage() {
         <Navbar />
 
         {/* FLOATING NAV */}
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-xl px-2">
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[50] w-[90%] max-w-xl px-2">
           <nav className="bg-[#080c14]/60 backdrop-blur-xl border border-white/10 p-1 rounded-3xl flex">
             {sections.map((s) => (
               <button
